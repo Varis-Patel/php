@@ -1,0 +1,19 @@
+<?php
+	require_once('../config.php');
+	$email=$_POST['email'];
+	$password=$_POST['password'];
+	$select="SELECT * FROM epeac_admin where email='$email' && password='$password'";
+	$query=mysqli_query($conn,$select);
+	if(mysqli_num_rows($query)>0)
+	{
+		session_start();
+		$res=mysqli_fetch_assoc($query);
+		$_SESSION['id']=$res['id'];
+		$_SESSION['fullname']=$res['fullname'];
+		$_SESSION['email']=$res['email'];
+		header('Location:admin_main.php');
+	}else
+	{
+		header('Location:admin_login.php?login_error=1');
+	}
+?>
