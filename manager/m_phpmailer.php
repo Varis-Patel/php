@@ -30,13 +30,13 @@ $select="SELECT * FROM epeac_manager where email='$email'";
 			$mail->isSMTP();                                            // Send using SMTP
 			$mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-			$mail->Username   = 'web.dev.project.wdp@gmail.com';                     // SMTP username
-			$mail->Password   = 'web_dev_project';                               // SMTP password
+			$mail->Username   = 'EMAIL of account from which mail is sent';                     // SMTP username
+			$mail->Password   = 'password of account';                               // SMTP password
 			$mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
 			$mail->Port       = 465;                                    // TCP port to connect to
 
 			//Recipients
-			$mail->setFrom('web.dev.project.wdp@gmail.com', 'Web_Developer');
+			$mail->setFrom('SENDERS EMAIL', 'SENDERS NAME');
 			$mail->addAddress($email);     // Add a recipient
 		 // $mail->addAddress('ellen@example.com');               // Name is optional
 			$mail->addReplyTo('noreply@gmail.com', 'No-reply');
