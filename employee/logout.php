@@ -1,0 +1,13 @@
+<?php 
+	session_start();
+	session_start();
+	//unset($_SESSION['id']);
+	unset($_SESSION['e_id']);
+	unset($_SESSION['e_name']);
+	unset($_SESSION['e_address']);
+	unset($_SESSION['e_dob']);
+	unset($_SESSION['e_contact']);
+	unset($_SESSION['e_email']);
+	unset($_SESSION['e_manager_assign']);
+	header('Location:employee_login.php');
+?>
