@@ -1,0 +1,25 @@
+<?php
+	require_once('../config.php');
+	$email=$_POST['email'];
+	$password=$_POST['password'];
+	$select="SELECT * FROM epeac_manager JOIN epeac_addmanager ON epeac_manager.email=epeac_addmanager.m_email where email='$email' && password='$password'";
+	$query=mysqli_query($conn,$select);
+	//print_r($query);
+	//die;
+	if(mysqli_num_rows($query)>0)
+	{
+		session_start();
+		$res=mysqli_fetch_assoc($query);
+		$_SESSION['id']=$res['id'];
+		$_SESSION['m_id']=$res['m_id'];
+		$_SESSION['m_name']=$res['m_name'];
+		$_SESSION['m_address']=$res['m_address'];
+		$_SESSION['m_contact']=$res['m_contact'];
+		$_SESSION['m_dob']=$res['m_dob'];
+		$_SESSION['m_email']=$res['m_email'];
+		header('Location:manager_main.php');
+	}else
+	{
+		header('Location:manager_login.php?login_error=1');
+	}
+?>

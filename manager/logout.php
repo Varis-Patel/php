@@ -1,0 +1,11 @@
+<?php 
+	session_start();
+	//unset($_SESSION['id']);
+	unset($_SESSION['m_id']);
+	unset($_SESSION['m_name']);
+	unset($_SESSION['m_address']);
+	unset($_SESSION['m_dob']);
+	unset($_SESSION['m_contact']);
+	unset($_SESSION['m_email']);
+	header('Location:manager_login.php');
+?>
